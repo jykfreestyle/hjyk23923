@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <title>TMAP 열기</title>
+  <script>
+    window.onload = function () {
+      const isMobile = /Android|iPhone|iPad/i.test(navigator.userAgent);
+      const tmapUrl = 'tmap://route?goalx=127.027636&goaly=37.497942&goalname=스타벅스';
+      
+      if (isMobile) {
+        // 앱 열기 시도
+        window.location.href = tmapUrl;
+
+        // 앱이 설치 안 되어 있을 경우 대비 fallback 처리
+        setTimeout(() => {
+          alert("TMAP 앱이 설치되어 있지 않으면 열리지 않습니다.");
+        }, 2000);
+      } else {
+        document.body.innerHTML = "<p>모바일 기기에서만 실행됩니다.</p>";
+      }
+    };
+  </script>
+</head>
+<body>
+  <p>잠시만 기다려 주세요. TMAP을 여는 중입니다...</p>
+</body>
+</html>
